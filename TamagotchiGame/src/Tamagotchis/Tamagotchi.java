@@ -22,6 +22,8 @@ package Tamagotchis;
 	 
 	 private String name = "";		// name of tamagotchi
 	 private int age = 0;			// age of tamagotchi
+	 
+	 private int[] clock = new int[2];	// current time since creation of tamagotchi
  	
  	// ********** constructors ***********
 	 
