@@ -35,7 +35,7 @@ package Tamagotchis;
 	 private int humanoidId = 0;	// unique id
 	 private SubRace race = null;	// humanoid race
 	 private Career career = null;	// job
-	 private double income = 0;		// daily income
+	 private double income = 0;	// daily income
 	 
  	// ********** constructors ***********
 	 
