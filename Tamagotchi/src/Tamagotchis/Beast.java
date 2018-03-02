@@ -4,9 +4,9 @@ package Tamagotchis;
  * Programmer:	Caleb Beynon
  * Class:		CS30S
  * 
- * Assignment:	aX  qY
+ * Assignment:	4: 2
  *
- * Description:	describe the class you are creating
+ * Description:	Beast sub-class of tamagotchi
  *
  * 
  * *************************************************************
@@ -31,7 +31,7 @@ package Tamagotchis;
 	 private int beastId = 0;	// unique id
 	 private Type type = null;	// type of animal tamagotchi
 	 
-	 private int cleanliness = 100;	// cleanliness meter
+	 private int cleanliness = 75;	// cleanliness meter
  	
  	// ********** constructors ***********
  	
@@ -39,12 +39,14 @@ package Tamagotchis;
 	  * Purpose: create person object
 	  * Interface: IN:	name n: string
 	  * 				age a: int
+	  * 				minRange r1: int
+	  * 				maxRange r2: int
 	  * 					*
 	  * 				type t: Type
 	  * Returns: none
 	  * *****************************************************/
-	 public Beast(String n, int a, Stage l, Type t) {
-		 super(n, a, l);
+	 public Beast(String n, int a, Stage l, int r1, int r2, Type t) {
+		 super(n, a, l, r1, r2);
 		 
 		 // 
 		 beastId = nextID++;	// set and increment id for beast
@@ -79,6 +81,23 @@ package Tamagotchis;
 	public Type getType() {
 		return type;
 	} // end getType
+	
+	/*****************************************************
+	  * Purpose: check to see if a meter is equal to n
+	  * Interface: IN:	n: int
+	  * Returns: boolean
+	  * *****************************************************/
+	public boolean checkMeterz(int n) {
+		if (this.getHunger() <= n) {
+			return true;
+		}
+		else if (this.getClean() <= n) {
+			return true;
+		}
+		else{
+			return false;
+		}
+	} // end getMeterz
 	
  	// ********** mutators **********
 

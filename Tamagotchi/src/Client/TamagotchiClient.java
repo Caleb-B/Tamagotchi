@@ -4,7 +4,7 @@ package Client;
 // Programmer:	Caleb Beynon
 // Class:		CS30S
 //
-// Assignment:	aX qy
+// Assignment:	4: 2
 //
 // Description:	a brief description of the program goes here
 //
@@ -17,6 +17,7 @@ package Client;
 import javax.swing.*;
 
 import Tamagotchis.*;
+import Tamagotchis.Beast.*;
 import Tamagotchis.Humanoid.*;
 import Tamagotchis.Tamagotchi.*;
 
@@ -40,27 +41,47 @@ public class TamagotchiClient
     	String tabSpace = "      ";	// six spaces
     	
     	Tamagotchi[] tList = null;
-        tList = new Tamagotchi[10];           	// array of tamagotchis
+        tList = new Tamagotchi[4];           	// array of tamagotchis
         int n = 0;                          	// tamagotchi object counter
+        MultiThreader[] mList = null;
+        mList = new MultiThreader[4];
         
     // create instances of objects for i/o and formatting
     
     	//ConsoleReader console = new ConsoleReader(System.in);
     	//DecimalFormat df1 = new DecimalFormat("$##.00");
 		
+     // ***** Print Banner *****
+        
+		ProgramInfo Printer = new ProgramInfo();	// create new printer object
+    	
+    	Printer.printBanner("4:", "2");	// print banner
+    		
 	// ***** create objects *****
 		
-		ProgramInfo Printer = new ProgramInfo();	// create new printer object
+		Tamagotchi fairy1 = new Fairy("Felicity", 0, Stage.Baby, 5, 20, Career.Merchant, SubRace.Fairy, 40.25);
+		tList[0] = fairy1;
 		
-		tList[0] = new Fairy("Fred", 0, Stage.Baby, Career.Merchant, SubRace.Fairy, 40.25);
+		Tamagotchi humanoid1 = new Humanoid("Greg", 0, Stage.Baby, 22, 40, Career.Miner, SubRace.Dwarf, 25.3);
+		tList[1] = humanoid1;
+		
+		Tamagotchi tama1 = new Tamagotchi("Fin", 0, Stage.Baby, 15, 36);
+		tList[2] = tama1;
+		
+		Tamagotchi beast1 = new Beast("Barkley", 0, Stage.Baby, 3, 15, Type.Dog);
+		tList[3] = beast1;
+		
+		//MultiThreader m1 = new MultiThreader(tList[2]);
+		//m1.run();
+		
+		for (int i = 0; i < 4; i++) {
+			mList[i] = new MultiThreader(tList[i]);
+			mList[i].run();
+		}
 		
 	// ***** create input stream *****
 	
 		//ConsoleReader console = new ConsoleReader(System.in);
-		
-	// ***** Print Banner *****
-	
-		Printer.printBanner("4:", "2");	// print banner
 		
 	// ***** get input *****
 	

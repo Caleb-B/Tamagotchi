@@ -4,9 +4,9 @@ package Tamagotchis;
  * Programmer:	Caleb Beynon
  * Class:		CS30S
  * 
- * Assignment:	aX  qY
+ * Assignment:	4: 2
  *
- * Description:	describe the class you are creating
+ * Description:	Humanoid sub-class of tamagotchi
  *
  * 
  * *************************************************************
@@ -37,7 +37,7 @@ package Tamagotchis;
 	 private SubRace race = null;	// sub race
 	 private double income = 0;		// daily income
 	 
-	 private int happiness = 100;	// happiness meter
+	 private int happiness = 75;	// happiness meter
 	 
  	// ********** constructors ***********
 	 
@@ -46,6 +46,8 @@ package Tamagotchis;
 	  * Interface: IN:	name n: string
 	  * 				age a: int
 	  * 				lifeStage l: Stage
+	  * 				minRange r1: int
+	  * 				maxRange r2: int
 	  * 					*
 	  * 				race r: SubRace
 	  * 				career c: Career
@@ -53,8 +55,8 @@ package Tamagotchis;
 	  * 				income i: double
 	  * Returns: none
 	  * *****************************************************/
-	 public Humanoid(String n, int a, Stage l, Career c, SubRace s, double i) {
-		 super(n, a, l);
+	 public Humanoid(String n, int a, Stage l, int r1, int r2, Career c, SubRace s, double i) {
+		 super(n, a, l, r1, r2);
 		 
 		 // 
 		 humanoidId = nextID++;		// set and increment id for humanoid
@@ -100,6 +102,32 @@ package Tamagotchis;
 	 public double getIncome() {
 		 return income;
 	 } // end getIncome
+	 
+	 /*****************************************************
+	  * Purpose: get happiness
+	  * Interface: IN:	none
+	  * Returns: happiness: int
+	  * *****************************************************/
+	 public double getHappy() {
+		 return happiness;
+	 } // end getHappy
+	 
+	 /*****************************************************
+	  * Purpose: check to see if a meter is equal to n
+	  * Interface: IN:	n: int
+	  * Returns: boolean
+	  * *****************************************************/
+	 public boolean checkMeterz(int n) {
+		 if (this.getHunger() <= n) {
+			 return true;
+		 }
+		 else if (this.getHappy() <= n) {
+			 return true;
+		 }
+		 else{
+			 return false;
+		 }
+	 } // end getMeterz
 	 
 	// ********** mutators **********
 
